@@ -200,7 +200,7 @@ footer * {
 #mainContainer {
   padding: 1em 3em 0.1em;
   margin: auto; 
-  width: 80em;
+  width: 80%;
   min-height: 101%;
   text-align: justify;
   background: none;
@@ -246,6 +246,7 @@ footer * {
   background: #89C4F4;
   color: #003171;
   font-weight: bolder;
+  display: none;
 }
 
 #contributionContainer {
@@ -275,6 +276,7 @@ footer * {
 
 .reviewDiv {
   text-align: right;
+  max-width: 95%;
 }
 
 .review {

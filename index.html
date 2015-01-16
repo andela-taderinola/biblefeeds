@@ -34,18 +34,20 @@
       <div id="feedContainer">
         <div id="questionsContainer" ng-repeat="question in questions | filter:refine">
           <div class="question">
-            <h4 ng-bind="question.question"></h4>
+            <p>{{$index}}</p>
+            <h4 ng-bind="question.content"></h4>
             <em>
               <span>Posted by </span><span ng-bind="question.author"></span>
               <span> on </span><span ng-bind="question.posted"></span>
             </em>
             <div class="reviewDiv">
-              <span class="review"><a href=""><span ng-bind="question.answers.length"></span>
-              <span> contributions</span></a></span>
+              <span class="review" ng-show="question.answers > 0">
+                <a href="" ng-click="showAnswers(question._id)"><span>contributions </span><span ng-bind="question.answers"></span></a>
+              </span>
             </div>
           </div>
-          <div ng-repeat="answer in question.answers | orderBy:'-likes'" class="container-fluid answer">
-          <h5 ng-bind="answer.answer"></h5>
+          <div ng-repeat="answer in answers[$index] | orderBy:'-likes'" ng-show="" class="container-fluid answer">
+          <h5 ng-bind="answer.content"></h5>
           <em>
             <span>by </span><span ng-bind="answer.author"></span>
             <span> on </span><span ng-bind="answer.posted"></span>
@@ -58,7 +60,7 @@
           </div>
           <div id="contributionContainer" class="container-fluid">
             <form id="contributionForm">
-              <textarea class="form-control" class="contribution" name="textarea" placeholder="Add your contribution."></textarea>
+              <textarea class="form-control contribution" name="textarea" placeholder="Add your contribution."></textarea>
               <button class="btn btn-default contributionButton">Submit Contribution</button>
             </form>
           </div>
