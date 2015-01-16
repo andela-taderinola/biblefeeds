@@ -42,21 +42,23 @@
             </em>
             <div class="reviewDiv">
               <span class="review" ng-show="question.answers > 0">
-                <a href="" ng-click="showAnswers(question._id)"><span>contributions </span><span ng-bind="question.answers"></span></a>
+                <a href="" ng-click="showAnswers($index)">
+                  <span>contributions </span><span ng-bind="question.answers"></span>
+                </a>
               </span>
             </div>
           </div>
-          <div ng-repeat="answer in answers[$index] | orderBy:'-likes'" ng-show="" class="container-fluid answer">
-          <h5 ng-bind="answer.content"></h5>
-          <em>
-            <span>by </span><span ng-bind="answer.author"></span>
-            <span> on </span><span ng-bind="answer.posted"></span>
-            <div class="reviewDiv">
-              <span class="review"> <a href="">Yeah!</a></span><span ng-bind="answer.likes"></span>
-              <span class="review okay"> <a href="">Okay</a></span><span ng-bind="answer.okays"></span>
-              <span class="review wrong"> <a href="">No!</a></span><span ng-bind="answer.dislikes"></span>
-            </div>
-          </em>
+          <div ng-repeat="answer in answers[$index] | orderBy:'-likes'" class="container-fluid answer">
+            <h5 ng-bind="answer.content"></h5>
+            <em>
+              <span>by </span><span ng-bind="answer.author"></span>
+              <span> on </span><span ng-bind="answer.posted"></span>
+              <div class="reviewDiv">
+                <span class="review"> <a href="">Yeah!</a></span><span ng-bind="answer.likes"></span>
+                <span class="review okay"> <a href="">Okay</a></span><span ng-bind="answer.okays"></span>
+                <span class="review wrong"> <a href="">No!</a></span><span ng-bind="answer.dislikes"></span>
+              </div>
+            </em>
           </div>
           <div id="contributionContainer" class="container-fluid">
             <form id="contributionForm">
@@ -88,6 +90,8 @@
     <script type="text/javascript" src="js/vendor/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="js/vendor/angular.js"></script>
     <script type="text/javascript" src="js/vendor/angular-route.js"></script>
+    <script type="text/javascript" src="js/vendor/ngStorage.js"></script>
     <script type="text/javascript" src="js/custom/app.js"></script>
+    <script type="text/javascript" src="js/custom/controller.js"></script>
   </body>
 </html>
