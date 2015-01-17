@@ -15,7 +15,11 @@ angular.module('Questions')
       // }
 
 
-
+      var token = $localStorage.token;
+      var authorName = $localStorage.username;
+      if(!authorName) {
+        authorName = "Anonymous";
+      };
       // function getUserFromToken() {
       //     var token = $localStorage.token;
       //     var user = {};
@@ -27,37 +31,45 @@ angular.module('Questions')
       // }
 
       // var currentUser = getUserFromToken();
+      var config = {headers:  {
+        'Authorization': 'Bearer ' + token,
+        'username' : authorName
+        }
+      };
 
       return {
-          postQuestion: function(username, success) {
-              $http.post(baseUrl + '/api/users/' + username + 'questions').success(success)
+          postQuestion: function(username, data, success) {
+              $http.post(baseUrl + '/api/users/' + username + '/questions', data, config).success(success)
           },
           getUserQuestions: function(username, success) {
-            $http.delete(baseUrl + '/api/users/' + username + '/questions').success(success)
+            $http.delete(baseUrl + '/api/users/' + username + '/questions', config).success(success)
           },
           deleteQuestion: function(username, question_id, success) {
-            $http.delete(baseUrl + '/api/users/' + username + '/questions/' + question_id).success(success)
+            $http.delete(baseUrl + '/api/users/' + username + '/questions/' + question_id, config).success(success)
           },
-          updateQuestion: function(username, question_id, success) {
-            $http.put(baseUrl + '/api/users/' + username + '/questions/' + question_id).success(success)
+          updateQuestion: function(username, question_id, data, success) {
+            $http.put(baseUrl + '/api/users/' + username + '/questions/' + question_id, data, config).success(success)
           },
           getAllQuestions: function(success) {
               $http.get(baseUrl + '/api/questions').success(success)
           },
+          getQuestionById: function(question_id, success) {
+            $http.get(baseUrl + '/api/questions/' + question_id).success(success)
+          },
           getAnswers: function(question_id, success) {
             $http.get(baseUrl + '/api/questions/' + question_id + '/answers').success(success)
           },
-          postAnswer: function(question_id, success) {
-            $http.post(baseUrl + '/api/questions/' + question_id + '/answers').success(success)
+          postAnswer: function(question_id, data, success) {
+            $http.post(baseUrl + '/api/questions/' + question_id + '/answers', data, config).success(success)
           },
           deleteAnswer: function(question_id, answer_id, success) {
-            $http.delete(baseUrl + '/api/questions/' + question_id + '/answers/' + answer_id).success(success)
+            $http.delete(baseUrl + '/api/questions/' + question_id + '/answers/' + answer_id, config).success(success)
           },
-          updateAnswer: function(answer_id, success) {
-            $http.put(baseUrl + '/api/answers/' + answer_id).success(success)
+          updateAnswer: function(answer_id, data, success) {
+            $http.put(baseUrl + '/api/answers/' + answer_id, config).success(success)
           },
           getUserAnswers: function(question_id, success) {
-            $http.get(baseUrl + '/users/' + username + '/answers').success(success)
+            $http.get(baseUrl + '/users/' + username + '/answers', data, config).success(success)
           },
           logout: function(success) {
             delete $localStorage.token;

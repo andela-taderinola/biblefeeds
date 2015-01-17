@@ -9,7 +9,8 @@
     'Questions',
     'Bible',
     'ngRoute',
-    'ngStorage'
+    'ngStorage',
+    'ngAnimate'
   ])
 
   .config(['$routeProvider', '$httpProvider',
@@ -41,6 +42,10 @@
         }).
         when('/feeds', {
           templateUrl: 'partials/feeds.html',
+          controller: 'feedsController'
+        }).
+        when('/answers', {
+          templateUrl: 'partials/answers.html',
           controller: 'feedsController'
         }).
         otherwise({

@@ -7,7 +7,6 @@ angular.module('Bible')
   '$http',
   '$location',
   function ($scope, $http, $location) {
-  $scope.inputText = "Gen 1";
   $scope.key = "517d06fdbe90e270534625197ed15845";
 
   $scope.open = function () {
@@ -65,25 +64,13 @@ $scope.openBible = function (status){
   }
 
 $scope.rollUp = function() {
-  $(".navbar").css({
-  "transition": "0.5s ease-in-out .5s",
-  "-webkit-transition": "0.5s ease-in-out .5s",
-  "-moz-transition": "0.5s ease-in-out .5s",
-  "-o-transition": "0.5s ease-in-out .5s",
-  "position": "absolute",
-  "width": "100%",
-  "top": "-3em",
-  "height": "4em",
-  "padding-top": "0.1em",
-  "z-index": "1",
-  "text-align": "center"
-});
+  $("#navbar").fadeOut(1000);
 
   $( "div" ).hover(
     function() {
-      $(".navbar").css({"top": "0"});
+      $("#navbar").fadeIn(500);
     }, function() {
-      $(".navbar").css({"top": "-3em"});
+      $("#navbar").fadeOut(1000);
     }
   );
 }
@@ -102,13 +89,12 @@ $scope.failEvent = function(status) {
     $scope.info = "Looks like there's a little hiccup: (" + status + ")";
   }
 
-  $(".navbar").css("top", "0");
-  $( "div" ).hover(
-  function() {
-    $(".navbar").css({"top": "0"});
-  }, function() {
-    $(".navbar").css({"top": "0"});
-  }
-);
+  // $("#navbar").css("top", "0");
+  // $( "div" ).hover(
+  // function() {
+  //   $("#navbar").css({"top": "0"});
+  // }, function() {
+  //   $("#navbar").css({"top": "0"});
+  // }
 }
 }]);
