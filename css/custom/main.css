@@ -15,17 +15,18 @@ body {
   -webkit-transition: 0.5s ease-in-out .5s;
   -moz-transition: 0.5s ease-in-out .5s;
   -o-transition: 0.5s ease-in-out .5s;
-  position: fixed;
-  width: 100%;
-  top: 1%;
+  position: relative;
+  width: 90%;
+  top: 30%;
+  margin: auto;
   height: 4em;
   padding-top: 0.1em;
   text-align: center;
 }
 
 div:hover #navbar {
-  position: absolute;
-  top: -5em;
+  position: relative;
+  top: 0.5em;
 }
 
 form {
@@ -71,8 +72,8 @@ form {
   z-index: 2;
 }
 
-#container, #searchListContainer {
-  position: absolute;
+#bible, #searchListContainer {
+  position: relative;
   height: 82%;
   top: 5%;
   padding: 1em 1em 0.9em 0.7em;
@@ -83,7 +84,7 @@ form {
   border-radius: 1%;
 }
 
-#container {
+#bible {
   width: 65%;
   left: 1%;
   text-align: center;

@@ -1,0 +1,10 @@
+<form ng-submit="postQuestion()" class="userForm">
+  <h1>Post Question</h1>
+  <div>
+    <textarea ng-model="questionContent" id="questionInput" class="form-control contribution"></textarea>
+  </div>
+  <input id="notify" type="checkbox" ng-checked=""><label for="notify"> Notify me when question is answered</label>
+  <button id="submitQuestion" class="btn btn-default">Submit Question</button>
+  <label id="questionPosted">Your Question has been posted successfully</label>
+</form>
+  

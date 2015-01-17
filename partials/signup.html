@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/custom/main.css">
-    <link rel="icon" href="img/BibleIcon.png">
-    <script type="text/javascript" src="js/vendor/bootstrap.js"></script>
-    <script type="text/javascript" src="js/vendor/angular.js"></script>
-    <script type="text/javascript" src="js/vendor/angular-route.js"></script>
-    <script type="text/javascript" src="js/vendor/angular-mocks.js"></script>
-    <script type="text/javascript" src="js/custom/controller.js"></script>
-    <script type="text/javascript" src="js/vendor/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="js/custom/app.js"></script>
-    <title>Word Feed | Get Answers</title>
-  </head>
-  <body>
-    <form class="userForm">
-      <h1>Sign up</h1>
-      <input class="form-control" type="text" placeholder="Username" required>
-      <input class="form-control" type="password" placeholder="Password" required>
-      <input class="form-control" type="password" placeholder="Confirm Password" required>
-      <button class="btn btn-default">Create Account</button>
-      <p>Already have an account?</p>
-      <a href="">Sign in</a>
-    </form>
-  </body>
-</html>
+<form ng-submit="register()"class="userForm">
+  <h1>Sign up</h1>
+  <input ng-model="username" class="form-control" type="text" placeholder="Username" required>
+  <input ng-model="password" class="form-control" type="password" placeholder="Password" required>
+  <input ng-model="password2" class="form-control" type="password" placeholder="Confirm Password" required>
+  <button ng-disabled ="password !== password2" class="btn btn-default">Create Account</button>
+  <p>Already have an account?</p>
+  <a href="#/login">Sign in</a>
+  <p id="signupInfo"></p>
+  <p ng-hide="password === password2 || password === ''">Passwords do not match</p>
+</form>
