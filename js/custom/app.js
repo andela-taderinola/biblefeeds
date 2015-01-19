@@ -48,8 +48,12 @@
           templateUrl: 'partials/answers.html',
           controller: 'feedsController'
         }).
+        when('/home', {
+          templateUrl: 'partials/home.html',
+          controller: 'bibleController'
+        }).
         otherwise({
-          redirectTo: '/feeds'
+          redirectTo: '/home'
         });
 
     $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {

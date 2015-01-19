@@ -1,7 +1,7 @@
 <form ng-submit="postQuestion()" class="userForm">
   <h1>Post Question</h1>
   <div>
-    <textarea autofocus="autofocus" ng-model="questionContent" id="questionInput" class="form-control contribution"></textarea>
+    <textarea required autofocus="autofocus" ng-model="questionContent" id="questionInput" class="form-control contribution"></textarea>
     <input ng-hide="currentUser" class="form-control" ng-model="guestName" placeholder="Enter your email here">
   </div>
   <input id="notify" type="checkbox" ng-checked=""><label for="notify"> Notify me when question is answered</label>

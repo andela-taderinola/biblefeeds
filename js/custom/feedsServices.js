@@ -9,7 +9,7 @@ angular.module('Questions')
 
   function ($http, $rootScope, $localStorage) {
           
-      var baseUrl = "http://localhost:5000";
+      var baseUrl = "https://sleepy-cliffs-3236.herokuapp.com";
       // function changeUser(user) {
       //     angular.extend(currentUser, user);
       // }
@@ -32,8 +32,7 @@ angular.module('Questions')
 
       // var currentUser = getUserFromToken();
       var config = {headers:  {
-        'Authorization': 'Bearer ' + token,
-        'username' : authorName
+        'Authorization': 'Bearer ' + token
         }
       };
 
@@ -66,7 +65,7 @@ angular.module('Questions')
             $http.delete(baseUrl + '/api/questions/' + question_id + '/answers/' + answer_id, config).success(success)
           },
           updateAnswer: function(answer_id, data, success) {
-            $http.put(baseUrl + '/api/answers/' + answer_id, config).success(success)
+            $http.put(baseUrl + '/api/answers/' + answer_id, data, config).success(success)
           },
           getUserAnswers: function(question_id, success) {
             $http.get(baseUrl + '/users/' + username + '/answers', data, config).success(success)

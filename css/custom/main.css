@@ -6,24 +6,23 @@ html, body {
 
 body {
   text-align: center;
-  background: -webkit-linear-gradient(#000, #264348, #757D75, #BDC3C7);
-  background-attachment: fixed;
+/*  background: -webkit-linear-gradient(#000, #264348, #757D75, #BDC3C7);
+*/  background-attachment: fixed;
   font-size: 1.3em;
 }
 
-#navbar {
-  transition: 0.5s ease-in-out .5s;
-  -webkit-transition: 0.5s ease-in-out .5s;
-  -moz-transition: 0.5s ease-in-out .5s;
-  -o-transition: 0.5s ease-in-out .5s;
-  position: fixed;
-  top: 41%;
-  left: 6em;
-  margin: auto;
-  height: 4em;
-  padding-top: 0.1em;
-  text-align: center;
-  z-index: 1;
+.navbar {
+  background: #003171;
+  border: none;
+  padding: 0.4em;
+}
+
+#navbar a:hover {
+  color: #19B5FE;
+}
+
+#navbar * {
+  color: #fff;
 }
 
 /*div:hover #navbar {
@@ -31,21 +30,23 @@ body {
   top: 0.5em;
 }*/
 
-form {
+/*form {
   position: relative;
   margin: 0 auto;
   padding-bottom: 0.5em;
+}*/
+
+#searchForm {
+  display: none;
 }
 
 #btn {
   display: inline-block;
   background: url('../../img/BibleIcon.png') no-repeat;
   background-size: cover;
-  position: relative;
   width: 3em;
   height: 3em;
-  margin: 0.9em -0.38em 0;
-  top: 0.52em;
+  margin-left: -0.35em;
   padding: 0.5em 1em;
 }
 
@@ -53,7 +54,6 @@ form {
   display: inline-block;
   width: 19em;
   height: 3em;
-  padding: 0.5em 1em;
 }
 
 #options {
@@ -155,9 +155,10 @@ a {
 footer {
   position: relative;
   width: 100%;
+  color: #003171;
   margin: 5% auto 0;
+  padding: 0.5em;
   bottom: 0;
-  background: #F1F2F3;
   font-size: 1em;
   font-weight: bolder;
   border-top: 2px solid #C0C0C0;
@@ -192,11 +193,11 @@ footer * {
   opacity: 0.9;
   padding: 3em;
   margin: auto; 
-  width: 80%;
-  min-height: 94%;
+  width: 70%;
+  min-height: 80%;
   text-align: justify;
   background: none;
-  /*background: url('../../img/subtle_white_feathers.png');*/
+  background: url('../../img/subtle_white_feathers.png');
   box-shadow: 0.5em 0 1em 5px #264348;
 }
 
@@ -224,9 +225,7 @@ footer * {
 }
 
 #feedContainer {
-  border: 5px solid #4B77BE;
   margin: 0.1em;
-  color: #fff;
   border-radius: 5px;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -240,24 +239,38 @@ footer * {
 }
 
 .question {
-  background: #4B77BE;
+  background: #fff;
+}
+
+.modify-img {
+  width: 2em;
+  height: 2em;
+  margin: 0 1em;
+}
+
+.jumbotron h1 {
+  display: inline-block;
+}
+
+.logo {
+  height: 3em;
+  width: 3em;
 }
 
 .answer {
-  background: #89C4F4;
   color: #003171;
   font-weight: bolder;
-/*  display: none;
-*/}
+  background: #fff;
+}
 
 #contributionContainer {
   position: relative;
-  background: #4B77BE;
+  text-align: right;
 }
 
-#contributionForm {
-  background: #4B77BE;
+.contributionForm {
   max-width: 90%;
+  margin: auto;
   text-align: right;
   padding-top: 2em;
 }
@@ -283,11 +296,12 @@ footer * {
 .reviewDiv {
   text-align: right;
   max-width: 95%;
+  border-radius: 10px;
 }
 
 .review {
   background: #003171;
-  border-radius: 2px; 
+  border-radius: 10px; 
 }
 
 .okay {
@@ -345,13 +359,14 @@ ul {
   width: 5em;
   height: 15em;
   left: -2.5em;
-  top: 40%;
+  bottom: 5%;
 }
 
 .userForm {
   position: relative;
-  margin: 10% auto;
+  margin: 3% auto;
   max-width: 30em;
+  max-height: 30em;
   border: 2px solid #1F4788;
   background: #48929B;
   border-radius: 5px;

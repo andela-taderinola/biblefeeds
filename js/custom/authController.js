@@ -24,7 +24,7 @@ angular.module('Authentication')
           } else {
               $localStorage.token = response.data.token;
               $localStorage.username = $scope.username;
-              window.location = "#/feeds";    
+              window.location = "#/home";    
           }
         }, function() {
             $rootScope.error = 'Failed to signin';
@@ -44,7 +44,7 @@ angular.module('Authentication')
                 $localStorage.token = response.data.token;
                 $localStorage.username = $scope.username;
                 $("#signupInfo").text("Account created successfully.");
-                window.location = "#";   
+                window.location = "#/home";   
             }
           }, 
           function() {

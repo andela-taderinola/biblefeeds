@@ -5,11 +5,10 @@
   </div>
   <a ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
   <p>
-    Drop your questions <a href="#/post">here</a><a ng-hide="currentUser" href="#/login"> login</a> to contribute answers.
+    Drop your questions <a href="#/post">here</a><a ng-hide="currentUser" href="#/login"> login</a>
   </p>
   <div id="filterBar">
-    <input class="form-control" id="feedFilter" ng-show="false" placeholder="Search with keywords" ng-model="refine">
-    <a href="#/post"><input id="btnPostNew" class="btn btn-default contributionButton" type="button" value="I'll Post My Question"></a>
+    <input class="form-control" id="feedFilter" placeholder="Search with keywords" ng-model="refine">
   </div>
   <div id="feedContainer">
     <div id="questionsContainer" ng-repeat="question in questions | filter:refine">
@@ -19,14 +18,22 @@
           <span>Posted by </span><span ng-bind="question.author"></span>
           <span> on </span><span ng-bind="question.posted"></span>
         </em>
+        <span ng-show="currentUser === question.author">
+          <a ng-click="deleteQuestion(question._id)" title="Delete" href="">
+            <img class="modify-img" src="../img/Delete_Icon.png">
+          </a>
+          <!-- <a title="Edit" href="">
+            <img class="modify-img" src="../img/pensil.png">
+          </a> -->
+        </span>
         <div class="reviewDiv">
-          <span class="review">
-            <a ng-click="storeId(idArray[$index])" class="showAnswers" href="#/answers">
-              <span>contributions</span>
+          <span class="btn btn-primary review">
+            <a ng-click="storeId(question._id)" class="showAnswers" href="#/answers">
+              <span>contributions <span ng-show="question.answers > 0" ng-bind="question.answers" class="badge"></span></span>
             </a>
-          </span>&nbsp<span ng-show="question.answers > 0" ng-bind="question.answers"></span>
+          </span>
         </div>
-        <hr>
+        <HR>
       </div>
     </div>
   </div>

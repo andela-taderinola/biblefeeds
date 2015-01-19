@@ -5,9 +5,19 @@ angular.module('Bible')
 .controller('bibleController', [
   '$scope',
   '$http',
+  '$localStorage',
   '$location',
-  function ($scope, $http, $location) {
+
+  function ($scope, $http, $location, $localStorage) {
   $scope.key = "517d06fdbe90e270534625197ed15845";
+  
+  $scope.getUser = function() {
+    $scope.username = $localStorage.username;
+  };
+
+  $scope.showSearch = function() {
+    $("#searchForm").fadeIn(1000);
+  };
 
   $scope.open = function () {
     $scope.searchBible();
@@ -32,7 +42,6 @@ angular.module('Bible')
             $("#bible").fadeOut(1000);
             $("#searchListContainer").fadeIn(1500);
             $(".toReveal").fadeIn(1000);
-            $scope.rollUp();
           } else {
             $scope.info = "Checking in Bible...";
             $scope.openBible();
@@ -54,26 +63,24 @@ $scope.openBible = function (status){
         $("#bible").fadeIn(1000);
         $("#search").fadeOut(800);
         $scope.info = "";
-        $scope.rollUp();
     }).
       error(function (data, status) {
         $scope.failEvent(status);
         return;
     });
-      $scope.rollUp(); 
   }
 
-$scope.rollUp = function() {
-  $("#navbar").fadeOut(1000);
+// $scope.rollUp = function() {
+//   $("#navbar").fadeOut(1000);
 
-  $( "div" ).hover(
-    function() {
-      $("#navbar").fadeIn(500);
-    }, function() {
-      $("#navbar").fadeOut(1000);
-    }
-  );
-}
+//   $( "div" ).hover(
+//     function() {
+//       $("#navbar").fadeIn(500);
+//     }, function() {
+//       $("#navbar").fadeOut(1000);
+//     }
+//   );
+// }
 
 $scope.failEvent = function(status) {
   if(status === 0) {
