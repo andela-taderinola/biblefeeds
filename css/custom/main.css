@@ -11,6 +11,10 @@ body {
   font-size: 1.3em;
 }
 
+div h3 {
+  display: inline-block;
+}
+
 .navbar {
   background: #003171;
   border: none;
@@ -21,20 +25,9 @@ body {
   color: #19B5FE;
 }
 
-#navbar * {
+#navbar a {
   color: #fff;
 }
-
-/*div:hover #navbar {
-  position: relative;
-  top: 0.5em;
-}*/
-
-/*form {
-  position: relative;
-  margin: 0 auto;
-  padding-bottom: 0.5em;
-}*/
 
 #searchForm {
   display: none;
@@ -63,9 +56,8 @@ body {
 }
 
 #info {
-  position: absolute;
+  position: relative;
   margin: auto;
-  top: 4em;
   background: #FFE4B5;
   border-radius: 1em;
   font-weight: lighter;
@@ -74,12 +66,10 @@ body {
   z-index: 2;
 }
 
-#bible, #searchListContainer {
-  position: absolute;
-  height: 82%;
-  width: 50%;
+#bible, #search {
+  position: relative;
+  height: 80%;
   top: 5%;
-  left: 15em;
   padding: 1em 1em 0.9em 0.7em;
   line-height: 1.4;
   background: #F5F5F5;
@@ -88,7 +78,7 @@ body {
   border-radius: 1%;
 }
 
-#bible {
+#bible, #search {
   text-align: center;
   color: #000;
   font-size: 1.5em;
@@ -96,7 +86,13 @@ body {
   display: none;
 }
 
-#searchListContainer {
+#search {
+  text-align: left;
+  border: none;
+}
+
+/*#searchListContainer {
+>>>>>>> d65f91585a8719101b027ca8a5bde97d3d18b9b5
   height: 65%;
   top: 22.5%;
   overflow: hidden;
@@ -105,14 +101,25 @@ body {
   color: #000;
   font-size: 1em;
   display: none;
+<<<<<<< HEAD
 }
 
 dl {
+=======
+}*/
+
+dl {
+  position: relative;
   margin: 1em 0 0.5em;
 }
 
 dt {
   color: blue;
+}
+
+dl, dl * {
+  position: relative;
+  width: 98%;
 }
 
 #searchListContainer:hover {
@@ -169,13 +176,16 @@ footer * {
 }
 
 #searchHeader {
-  position: absolute;
+  position: relative;
   top: 6%;
   text-align: center;
-  width: 50%;
-  height: 4%;
   background: #1E90FB;
   color: #fff;
+}
+
+#searchHeader * {
+  position: relative;
+  width: 100%;
 }
 
 #searchHeader p {
@@ -186,6 +196,8 @@ footer * {
 }
 
 .toReveal {
+  width: 100%;
+  position: relative;
   display: none;
 }
 
@@ -200,15 +212,6 @@ footer * {
   background: url('../../img/subtle_white_feathers.png');
   box-shadow: 0.5em 0 1em 5px #264348;
 }
-
-/*.mainContainer.ng-leave {
-  opacity: 0;
-}
-
-.mainContainer.ng-enter {
-  opacity: 1;
-}*/
-
 
 #filterBar {
   text-align: right;

@@ -1,12 +1,11 @@
 <div ng-init="showAllQuestions()">
   <div id="welcome">
-    <span>Welcome, </span><input type="text" ng-disabled="true" ng-show="currentUser" ng-model="currentUser">
-    <span ng-hide="currentUser">Guest</span>
+    <h3>Welcome,&nbsp </h3><h3 ng-show="currentUser" ng-bind="currentUser"></h3>
+    <span ng-hide="currentUser">Guest</span><a class="pull-right" ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
   </div>
-  <a ng-show="currentUser" ng-click="logout()" href="#/logout">Sign out</a>
-  <p>
+  <h3>
     Drop your questions <a href="#/post">here</a><a ng-hide="currentUser" href="#/login"> login</a>
-  </p>
+  </h3>
   <div id="filterBar">
     <input class="form-control" id="feedFilter" placeholder="Search with keywords" ng-model="refine">
   </div>
