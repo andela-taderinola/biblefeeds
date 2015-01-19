@@ -9,7 +9,7 @@ angular.module('Questions')
 
   function ($http, $rootScope, $localStorage) {
           
-      var baseUrl = "https://sleepy-cliffs-3236.herokuapp.com";
+      var baseUrl = "https://bibleforum.herokuapp.com";
       // function changeUser(user) {
       //     angular.extend(currentUser, user);
       // }
